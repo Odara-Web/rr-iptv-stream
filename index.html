@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <!-- 🔴 CORREÇÃO CRÍTICA PARA GITHUB PAGES -->
+  <base href="/rr-iptv-stream/">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>RR IPTV STREAM</title>
 
+  <!-- PWA -->
   <link rel="manifest" href="./manifest.json">
-  <link rel="stylesheet" href="./styles.css">
-
   <meta name="theme-color" content="#b30000">
+
+  <!-- ICON -->
+  <link rel="icon" href="./public/icons/icon-192.png">
+
+  <!-- STYLES -->
+  <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
@@ -17,35 +26,31 @@
     <!-- SIDEBAR -->
     <aside class="sidebar">
       <div class="logo">
-      <img src="./public/icons/logo.png" alt="RR IPTV STREAM">
+        <img src="./public/icons/logo.png" alt="RR IPTV STREAM">
       </div>
 
       <nav>
-  <button class="nav-item active">📡 Canais ao Vivo</button>
-  <button class="nav-item">🎬 Filmes</button>
-  <button class="nav-item">📺 Séries</button>
-  <button class="nav-item">⭐ Favoritos</button>
-  <button class="nav-item">📅 EPG</button>
-  <button class="nav-item">👤 Perfis</button>
-  <button class="nav-item">⚙️ Configurações</button>
-</nav>
+        <button class="nav-item active">📡 Canais ao Vivo</button>
+        <button class="nav-item">🎬 Filmes</button>
+        <button class="nav-item">📺 Séries</button>
+        <button class="nav-item">⭐ Favoritos</button>
+        <button class="nav-item">📅 EPG</button>
+        <button class="nav-item">👤 Perfis</button>
+        <button class="nav-item">⚙️ Configurações</button>
+      </nav>
     </aside>
 
-    <!-- CONTEÚDO -->
+    <!-- CONTEÚDO PRINCIPAL -->
     <main class="content">
-<section id="channels" class="card hidden">
-  <h2>Canais ao Vivo</h2>
-  <div id="channelList" class="channel-grid"></div>
-</section>
 
       <!-- LOGIN -->
       <section id="login" class="card">
         <h2>Login IPTV</h2>
 
         <div class="login-form">
-          <input type="text" placeholder="URL do Servidor" id="server">
-          <input type="text" placeholder="Usuário" id="user">
-          <input type="password" placeholder="Senha" id="pass">
+          <input type="text" id="server" placeholder="URL do Servidor">
+          <input type="text" id="user" placeholder="Usuário">
+          <input type="password" id="pass" placeholder="Senha">
           <button id="loginBtn">Entrar</button>
         </div>
       </section>
@@ -62,20 +67,27 @@
         </div>
       </section>
 
+      <!-- CANAIS AO VIVO -->
+      <section id="channels" class="card hidden">
+        <h2>Canais ao Vivo</h2>
+        <div id="channelList" class="channel-grid"></div>
+      </section>
+
     </main>
   </div>
 
   <!-- SCRIPTS -->
-<script src="./src/app.js"></script>
-<script src="./src/auth.js"></script>
-<script src="./src/hls-player.js"></script>
-<script src="./src/epg.js"></script>
-<script src="./src/record.js"></script>
-<script src="./src/m3u.js"></script>
-<script src="./src/profiles.js"></script>
-<script src="./src/storage.js"></script>
-<script src="./src/remote.js"></script>
+  <script src="./src/app.js"></script>
+  <script src="./src/auth.js"></script>
+  <script src="./src/hls-player.js"></script>
+  <script src="./src/epg.js"></script>
+  <script src="./src/record.js"></script>
+  <script src="./src/m3u.js"></script>
+  <script src="./src/profiles.js"></script>
+  <script src="./src/storage.js"></script>
+  <script src="./src/remote.js"></script>
 
+  <!-- SERVICE WORKER -->
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./service-worker.js');
